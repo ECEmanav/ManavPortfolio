@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manav Portfolio</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo.jpeg" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="./assets/images/my-avatar.png" alt="Richard hanrick" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title=" MB">Manav Behl</h1>
+
+          <p class="title"> Electronics & Comm. Engineer</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+
+              <a href="mailto:richard@example.com" class="contact-link">manav.behl@hotmail.com</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+
+              <a href="tel:+12133522795" class="contact-link">+91 7987546074</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Birthday</p>
+
+              <time datetime="1982-06-23">September 13, 2002</time>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+
+              <address>Indore, M.P., India</address>
+            </div>
+
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </aside>
+
+
+
+
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link  active" data-nav-link>About</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Resume</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Projects</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Skills</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Contact</button>
+          </li>
+
+        </ul>
+
+      </nav>
+
+
+
+
+
+      <!--
+        - #ABOUT
+      -->
+
+      <article class="about  active" data-page="about">
+
+        <<header>
+          <h2 class="h2 article-title">About Me</h2>
+        </header>
+        
+        <section class="about-text">
+          <p>
+            I'm Manav Behl, an Electronics and Communication Engineer with a strong passion for IoT, data analytics, and web development. 
+            I enjoy working on innovative projects that integrate smart technologies to solve real-world problems.
+          </p>
+
+          <p>
+            I am constantly learning and evolving, exploring new technologies to enhance my knowledge. My ultimate ambition is to bridge the gap 
+            between technology and usability, making everyday life smarter and more efficient.
+          </p>
+        </section>
+      
+
+
+       <!--
+  - service
+-->
+
+<section class="service">
+
+  <h3 class="h3 service-title">What I'm Doing</h3>
+
+  <ul class="service-list">
+
+    <li class="service-item">
+
+      <div class="service-icon-box">
+        <img src="./assets/images/iot.png" alt="IoT icon" width="40">
+      </div>
+
+      <div class="service-content-box">
+        <h4 class="h4 service-item-title">IoT Development</h4>
+
+        <p class="service-item-text">
+          Building smart IoT solutions to enhance automation, data collection, and real-time monitoring for a smarter future.
+        </p>
+      </div>
+
+    </li>
+
+    <li class="service-item">
+
+      <div class="service-icon-box">
+        <img src="./assets/images/DA.png" alt="Data Analytics icon" width="40">
+      </div>
+
+      <div class="service-content-box">
+        <h4 class="h4 service-item-title">Data Analytics</h4>
+
+        <p class="service-item-text">
+          Analyzing data using Python, SQL, and Excel to extract meaningful insights and drive better decision-making.
+        </p>
+      </div>
+
+    </li>
+
+    <li class="service-item">
+
+      <div class="service-icon-box">
+        <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
+      </div>
+
+      <div class="service-content-box">
+        <h4 class="h4 service-item-title">Web Development</h4>
+
+        <p class="service-item-text">
+          Creating dynamic and responsive websites using HTML, CSS, and JavaScript to deliver seamless user experiences.
+        </p>
+      </div>
+
+    </li>
+
+    <li class="service-item">
+
+      <div class="service-icon-box">
+        <img src="./assets/images/embedded.png" alt="Embedded Systems icon" width="40">
+      </div>
+
+      <div class="service-content-box">
+        <h4 class="h4 service-item-title">Embedded Systems</h4>
+
+        <p class="service-item-text">
+          Designing and programming embedded systems using Embedded C, microcontrollers, and sensor integration.
+        </p>
+      </div>
+
+    </li>
+
+  </ul>
+
+</section>
+
+
+
+        <!--
+  - testimonials
+-->
+
+<section class="testimonials">
+
+  <h3 class="h3 testimonials-title">Testimonials</h3>
+
+  <ul class="testimonials-list has-scrollbar">
+
+    <li class="testimonials-item">
+      <div class="content-card" data-testimonials-item>
+
+        <figure class="testimonials-avatar-box">
+          <img src="./assets/images/hod.webp" alt="Dr. Amit Sharma" width="60" data-testimonials-avatar>
+        </figure>
+
+        <h4 class="h4 testimonials-item-title" data-testimonials-title>Dr. A. A. Shinde</h4>
+
+        <div class="testimonials-text" data-testimonials-text>
+          <p>
+            Manav Behl demonstrated an exceptional understanding of Embedded Systems during his time at Bharati Vidyapeeth.
+            His expertise in microcontrollers, sensor integration, and PCB design was evident in his projects, including 
+            a real-time health monitoring system. His problem-solving skills and innovative mindset make him a valuable 
+            asset in the field of IoT and Embedded Systems.
+          </p>
+        </div>
+
+      </div>
+    </li>
+
+    <li class="testimonials-item">
+      <div class="content-card" data-testimonials-item>
+
+        <figure class="testimonials-avatar-box">
+          <img src="./assets/images/spinny.avif" alt="Spinny Management" width="60" data-testimonials-avatar>
+        </figure>
+
+        <h4 class="h4 testimonials-item-title" data-testimonials-title>Spinny Management</h4>
+
+        <div class="testimonials-text" data-testimonials-text>
+          <p>
+            During his time at Spinny, Manav showcased strong analytical and data-driven decision-making skills. His ability 
+            to track performance metrics and implement data insights helped optimize sales operations. His proactive approach, 
+            attention to detail, and dedication to excellence made a significant impact on our team.
+          </p>
+        </div>
+
+      </div>
+    </li>
+
+  </ul>
+
+</section>
+
+
+<!--
+  - testimonials modal
+-->
+
+<div class="modal-container" data-modal-container>
+
+  <div class="overlay" data-overlay></div>
+
+  <section class="testimonials-modal">
+
+    <button class="modal-close-btn" data-modal-close-btn>
+      <ion-icon name="close-outline"></ion-icon>
+    </button>
+
+    <div class="modal-img-wrapper">
+      <figure class="modal-avatar-box">
+        <img src="./assets/images/avatar-hod.png" alt="Dr. Amit Sharma" width="80" data-modal-img>
+      </figure>
+
+      <img src="./assets/images/icon-quote.svg" alt="quote icon">
+    </div>
+
+    <div class="modal-content">
+
+      <h4 class="h3 modal-title" data-modal-title>Dr. Amit Sharma</h4>
+
+      <time datetime="2023-07-10">10 July, 2023</time>
+
+      <div data-modal-text>
+        <p>
+          Manav Behl is a highly skilled Embedded Systems engineer. His technical expertise and dedication to developing 
+          IoT solutions have been impressive. His final year project showcased his ability to integrate hardware and 
+          software effectively, making him a promising professional in this domain.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+<div class="modal-container" data-modal-container>
+
+  <div class="overlay" data-overlay></div>
+
+  <section class="testimonials-modal">
+
+    <button class="modal-close-btn" data-modal-close-btn>
+      <ion-icon name="close-outline"></ion-icon>
+    </button>
+
+    <div class="modal-img-wrapper">
+      <figure class="modal-avatar-box">
+        <img src="./assets/images/avatar-spinny.png" alt="Spinny Management" width="80" data-modal-img>
+      </figure>
+
+      <img src="./assets/images/icon-quote.svg" alt="quote icon">
+    </div>
+
+    <div class="modal-content">
+
+      <h4 class="h3 modal-title" data-modal-title>Spinny Management</h4>
+
+      <time datetime="2024-01-10">10 January, 2024</time>
+
+      <div data-modal-text>
+        <p>
+          Manav's ability to leverage data for performance tracking and strategic decision-making was invaluable at Spinny.
+          His enthusiasm, adaptability, and problem-solving approach helped streamline our sales process. We highly
+          recommend him for roles requiring analytical thinking and data-driven execution.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+
+       <!--
+  - IDEs I Can Work With
+-->
+
+<section class="clients">
+
+  <h3 class="h3 clients-title">IDEs I Can Work With</h3>
+
+  <ul class="clients-list has-scrollbar">
+
+    <li class="clients-item">
+      <a href="https://code.visualstudio.com/" target="_blank">
+        <img src="./assets/images/vscode.png" alt="VS Code">
+      </a>
+    </li>
+
+    <li class="clients-item">
+      <a href="https://www.jetbrains.com/pycharm/" target="_blank">
+        <img src="./assets/images/pycharm.png" alt="PyCharm">
+      </a>
+    </li>
+
+    <li class="clients-item">
+      <a href="https://eclipseide.org" target="_blank">
+        <img src="./assets/images/eclipse.png" alt="Eclipse">
+      </a>
+    </li>
+
+    <li class="clients-item">
+      <a href="https://www.arduino.cc/en/software" target="_blank">
+        <img src="./assets/images/arduino.png" alt="Arduino IDE">
+      </a>
+    </li>
+
+    <li class="clients-item">
+      <a href="https://visualgdb.com/" target="_blank">
+        <img src="./assets/images/keil.png" alt="Keil µVision">
+      </a>
+    </li>
+
+    <li class="clients-item">
+      <a href="https://platformio.org/" target="_blank">
+        <img src="./assets/images/platformio.png" alt="PlatformIO">
+      </a>
+    </li>
+
+  </ul>
+
+</section>
+
+</article>
+
+
+
+
+
+
+    <!--
+  - #RESUME
+-->
+
+<article class="resume" data-page="resume">
+
+  <header>
+    <h2 class="h2 article-title">Resume</h2>
+  </header>
+
+  <!-- Education Section -->
+  <section class="timeline">
+
+    <div class="title-wrapper">
+      <div class="icon-box">
+        <ion-icon name="book-outline"></ion-icon>
+      </div>
+
+      <h3 class="h3">Education</h3>
+    </div>
+
+    <ol class="timeline-list">
+
+      <li class="timeline-item">
+        <h4 class="h4 timeline-item-title">B.Tech in Electronics & Communication Engineering</h4>
+        <span>2019 — 2023</span>
+        <p class="timeline-text">
+          Graduated from Bharati Vidyapeeth (DU) College of Engineering, Pune, with an <b>8.2 CGPA</b>.  
+          Specialized in <b>IoT, Embedded Systems, and Data Analytics</b>, working on projects like <b> Monitoring System</b> and <b>Smart Parking System</b>.
+        </p>
+      </li>
+
+      <li class="timeline-item">
+        <h4 class="h4 timeline-item-title">CBSE XII</h4>
+        <span>July 2020</span>
+        <p class="timeline-text">
+          Completed class XIIth with an overall percentage of 70.5% in the year 2020. With complete scores on each practical exam.
+        </p>
+      </li>
+
+      <li class="timeline-item">
+        <h4 class="h4 timeline-item-title">CBSE X</h4>
+        <span>April — May 2023</span>
+        <p class="timeline-text">
+          Completed class Xth with overall percentage of 68% in the year 2018.
+        </p>
+      </li>
+
+    </ol>
+
+  </section>
+
+  <!-- Experience Section -->
+  <section class="timeline">
+
+    <div class="title-wrapper">
+      <div class="icon-box">
+        <ion-icon name="briefcase-outline"></ion-icon>
+      </div>
+
+      <h3 class="h3">Experience</h3>
+    </div>
+
+    <ol class="timeline-list">
+
+      <li class="timeline-item">
+        <h4 class="h4 timeline-item-title">Management Trainee - Inside Sales</h4>
+        <span>August 2024 — November 2024</span>
+        <p class="timeline-text">
+          Working at <b>Spinny Max (Valuedrive Technologies Pvt. Ltd.)</b>, leveraging data analytics to optimize sales and track performance metrics, 
+          improving overall output by <b>8-10%</b>. Developed insights using Excel and Python for business growth.
+        </p>
+      </li>
+
+
+      <li class="timeline-item">
+        <h4 class="h4 timeline-item-title">Virtual Internship</h4>
+        <span>March 2022 — May 2022</span>
+        <p class="timeline-text">
+          Created multiple projects in the domain of Web-development (making <b>portfolios or web-shopping pages</b> for clients). And Internet of things ( creating sensor boards and curating easy solutions of problems like helping in a <b>smart parking sensor</b>)
+        </p>
+      </li>
+
+    </ol>
+
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skill">
+
+    <h3 class="h3 skills-title">My Skills</h3>
+
+    <ul class="skills-list content-card">
+
+      <li class="skills-item">
+        <div class="title-wrapper">
+          <h5 class="h5">Python & Data Analytics</h5>
+          <data value="65">65%</data>
+        </div>
+        <div class="skill-progress-bg">
+          <div class="skill-progress-fill" style="width: 65%;"></div>
+        </div>
+      </li>
+
+      <li class="skills-item">
+        <div class="title-wrapper">
+          <h5 class="h5">Embedded Systems & IoT</h5>
+          <data value="90">90%</data>
+        </div>
+        <div class="skill-progress-bg">
+          <div class="skill-progress-fill" style="width: 90%;"></div>
+        </div>
+      </li>
+
+      <li class="skills-item">
+        <div class="title-wrapper">
+          <h5 class="h5">SQL & Excel</h5>
+          <data value="20">20%</data>
+        </div>
+        <div class="skill-progress-bg">
+          <div class="skill-progress-fill" style="width: 20%;"></div>
+        </div>
+      </li>
+
+      <li class="skills-item">
+        <div class="title-wrapper">
+          <h5 class="h5">HTML, CSS, JavaScript</h5>
+          <data value="75">75%</data>
+        </div>
+        <div class="skill-progress-bg">
+          <div class="skill-progress-fill" style="width: 75%;"></div>
+        </div>
+      </li>
+
+      <li class="skills-item">
+        <div class="title-wrapper">
+          <h5 class="h5">Microcontrollers & PCB Design</h5>
+          <data value="30">30%</data>
+        </div>
+        <div class="skill-progress-bg">
+          <div class="skill-progress-fill" style="width: 30%;"></div>
+        </div>
+      </li>
+
+    </ul>
+
+  </section>
+
+</article>
+
+
+
+
+   <!--
+  - #PROJECTS
+-->
+
+<article class="projects" data-page="projects">
+
+  <header>
+    <h2 class="h2 article-title">Projects</h2>
+  </header>
+
+  <section class="projects">
+
+    <ul class="filter-list">
+      <li class="filter-item">
+        <button class="active" data-filter-btn>All</button>
+      </li>
+      <li class="filter-item">
+        <button data-filter-btn>IoT Projects</button>
+      </li>
+      <li class="filter-item">
+        <button data-filter-btn>Embedded Systems</button>
+      </li>
+      <li class="filter-item">
+        <button data-filter-btn>Web Development</button>
+      </li>
+    </ul>
+
+    <div class="filter-select-box">
+      <button class="filter-select" data-select>
+        <div class="select-value" data-selecct-value>Select category</div>
+        <div class="select-icon">
+          <ion-icon name="chevron-down"></ion-icon>
+        </div>
+      </button>
+
+      <ul class="select-list">
+        <li class="select-item"><button data-select-item>All</button></li>
+        <li class="select-item"><button data-select-item>IoT Projects</button></li>
+        <li class="select-item"><button data-select-item>Embedded Systems</button></li>
+        <li class="select-item"><button data-select-item>Web Development</button></li>
+      </ul>
+    </div>
+
+    <ul class="project-list">
+
+      <!-- IoT Projects -->
+      <li class="project-item active" data-filter-item data-category="iot projects">
+        <a href="https://github.com/ECEmanav/Smart-parking" target="_blank">
+          <figure class="project-img">
+            <div class="project-item-icon-box">
+              <ion-icon name="eye-outline"></ion-icon>
+            </div>
+            <img src="./assets/images/parking.png" alt="Smart Parking" loading="lazy">
+          </figure>
+          <h3 class="project-title">Smart Parking</h3>
+          <p class="project-category">IoT</p>
+        </a>
+      </li>
+
+      <li class="project-item active" data-filter-item data-category="iot projects">
+        <a href="https://github.com/ECEmanav/airpollution_system" target="_blank">
+          <figure class="project-img">
+            <div class="project-item-icon-box">
+              <ion-icon name="eye-outline"></ion-icon>
+            </div>
+            <img src="./assets/images/airpollution.jpeg" alt="Air Pollution System" loading="lazy">
+          </figure>
+          <h3 class="project-title">Air Pollution Monitoring</h3>
+          <p class="project-category">IoT</p>
+        </a>
+      </li>
+
+      <!-- Embedded Systems Projects -->
+      <li class="project-item active" data-filter-item data-category="embedded systems">
+        <a href="#">
+          <figure class="project-img">
+            <div class="project-item-icon-box">
+              <ion-icon name="eye-outline"></ion-icon>
+            </div>
+            <img src="./assets/images/trafficlight.png" alt="Traffic Light Simulation" loading="lazy">
+          </figure>
+          <h3 class="project-title">Traffic Light Simulation</h3>
+          <p class="project-category">Embedded Systems</p>
+        </a>
+      </li>
+
+      <!-- Web Development Projects -->
+      <li class="project-item active" data-filter-item data-category="web development">
+        <a href="https://github.com/ECEmanav/portfolio" target="_blank">
+          <figure class="project-img">
+            <div class="project-item-icon-box">
+              <ion-icon name="eye-outline"></ion-icon>
+            </div>
+            <img src="./assets/images/portfolio.png" alt="Portfolio Website" loading="lazy">
+          </figure>
+          <h3 class="project-title">Personal Portfolio</h3>
+          <p class="project-category">Web Development</p>
+        </a>
+      </li>
+
+      <li class="project-item active" data-filter-item data-category="web development">
+        <a href="https://github.com/ECEmanav/chat-bot" target="_blank">
+          <figure class="project-img">
+            <div class="project-item-icon-box">
+              <ion-icon name="eye-outline"></ion-icon>
+            </div>
+            <img src="./assets/images/chatbot.png" alt="Chat Bot" loading="lazy">
+          </figure>
+          <h3 class="project-title">AI Chat Bot</h3>
+          <p class="project-category">Web Development</p>
+        </a>
+      </li>
+
+      <li class="project-item active" data-filter-item data-category="web development">
+        <a href="https://github.com/ECEmanav/temp-conv" target="_blank">
+          <figure class="project-img">
+            <div class="project-item-icon-box">
+              <ion-icon name="eye-outline"></ion-icon>
+            </div>
+            <img src="./assets/images/tempcon.png" alt="Temperature Converter" loading="lazy">
+          </figure>
+          <h3 class="project-title">Temperature Converter</h3>
+          <p class="project-category">Web Development</p>
+        </a>
+      </li>
+
+    </ul>
+
+  </section>
+
+</article>
+
+
+
+
+
+
+      <!--
+    - #SKILLS
+-->
+
+<article class="skills" data-page="skills">
+
+  <header>
+    <h2 class="h2 article-title">Skills</h2>
+  </header>
+
+  <section class="skills-list">
+
+    <ul class="skills-list-items">
+
+      <li class="skills-item">
+        <a href="#">
+
+          <figure class="skills-banner-box">
+            <img src="./assets/images/embedded.png" alt="Embedded C" loading="lazy">
+          </figure>
+
+          <div class="skills-content">
+
+            <div class="skills-meta">
+              <p class="skills-category">Programming</p>
+
+              <span class="dot"></span>
+
+              <time datetime="2025-02-05">Feb 5, 2025</time>
+            </div>
+
+            <h3 class="h3 skills-item-title">Embedded C</h3>
+
+            <p class="skills-text">
+              Proficient in Embedded C for developing embedded systems and IoT solutions.
+            </p>
+
+          </div>
+
+        </a>
+      </li>
+
+      <li class="skills-item">
+        <a href="#">
+
+          <figure class="skills-banner-box">
+            <img src="./assets/images/iot.png" alt="Internet of Things (IoT)" loading="lazy">
+          </figure>
+
+          <div class="skills-content">
+
+            <div class="skills-meta">
+              <p class="skills-category">Technology</p>
+
+              <span class="dot"></span>
+
+              <time datetime="2025-02-05">Feb 5, 2025</time>
+            </div>
+
+            <h3 class="h3 skills-item-title">Internet of Things (IoT)</h3>
+
+            <p class="skills-text">
+              Experienced in IoT development with sensors, devices, and data communication protocols.
+            </p>
+
+          </div>
+
+        </a>
+      </li>
+
+      <li class="skills-item">
+        <a href="#">
+
+          <figure class="skills-banner-box">
+            <img src="./assets/images/html-logo.png" alt="HTML5, CSS3, and JavaScript" loading="lazy">
+          </figure>
+
+          <div class="skills-content">
+
+            <div class="skills-meta">
+              <p class="skills-category">Web Development</p>
+
+              <span class="dot"></span>
+
+              <time datetime="2025-02-05">Feb 5, 2025</time>
+            </div>
+
+            <h3 class="h3 skills-item-title">HTML5, CSS3, and JavaScript</h3>
+
+            <p class="skills-text">
+              Skilled in front-end development, creating responsive and interactive web pages.
+            </p>
+
+          </div>
+
+        </a>
+      </li>
+
+      <li class="skills-item">
+        <a href="#">
+
+          <figure class="skills-banner-box">
+            <img src="./assets/images/python-logo.jpeg" alt="Python and Pandas" loading="lazy">
+          </figure>
+
+          <div class="skills-content">
+
+            <div class="skills-meta">
+              <p class="skills-category">Data Analytics</p>
+
+              <span class="dot"></span>
+
+              <time datetime="2025-02-05">Feb 5, 2025</time>
+            </div>
+
+            <h3 class="h3 skills-item-title">Python and Pandas</h3>
+
+            <p class="skills-text">
+              Expertise in Python programming for data analysis, manipulation, and visualization with Pandas.
+            </p>
+
+          </div>
+
+        </a>
+      </li>
+
+    </ul>
+
+  </section>
+
+</article>
+
+
+
+
+
+
+      <!--
+  - #CONTACT
+-->
+
+<article class="contact" data-page="contact">
+
+  <header>
+    <h2 class="h2 article-title">Contact</h2>
+  </header>
+
+  <!-- Google Maps Embed for Indore, India -->
+  <section class="mapbox" data-mapbox>
+    <figure>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682793.489462378!2d74.34361405977455!3d22.71956822012386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fc3f08c1627f%3A0x7c1c87b2eac9e2cd!2sIndore%2C%20Madhya%20Pradesh%2C%20India!5e0!3m2!1sen!2sin!4v1700000000000"
+        width="100%" height="300" loading="lazy"></iframe>
+    </figure>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="contact-form">
+
+    <h3 class="h3 form-title">Contact Me</h3>
+
+    <form action="#" class="form" data-form>
+
+      <div class="input-wrapper">
+        <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+        <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+      </div>
+
+      <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+
+      <button class="form-btn" type="submit" disabled data-form-btn>
+        <ion-icon name="paper-plane"></ion-icon>
+        <span>Send Message</span>
+      </button>
+
+    </form>
+
+  </section>
+
+</article>
+
+
+
+
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
