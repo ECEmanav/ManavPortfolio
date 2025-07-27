@@ -1,997 +1,844 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manav Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manav Behl - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <!--
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./assets/images/logo.gif" type="image/x-icon">
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+            --accent-color: #06b6d4;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-light: #9ca3af;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-card: #ffffff;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
 
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
 
-  <!--
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 2rem;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: var(--shadow-xl);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 3rem;
+            color: white;
+            font-weight: 600;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .profile-info {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .profile-title {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            space-y: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-item:hover {
+            background: var(--bg-secondary);
+            transform: translateX(5px);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .contact-details h4 {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-details a, .contact-details span {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .contact-details a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Main Content */
+        .main-content {
+            background: var(--bg-card);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-list {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+        }
+
+        .nav-item button {
+            background: none;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-item button:hover {
+            color: var(--primary-color);
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .nav-item button.active {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-item button.active::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: slideShine 2s ease-in-out infinite;
+        }
+
+        .content-section {
+            padding: 2rem;
+            display: none;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* About Section */
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .service-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-item {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .skill-percentage {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 4px;
+            transition: width 1s ease;
+            animation: progressLoad 2s ease-out;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .project-card:hover .project-image::before {
+            left: 100%;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .project-category {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            gap: 0.75rem;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .map-container {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 1rem;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-form {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background: var(--bg-primary);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-button {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        @keyframes slideShine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes progressLoad {
+            from { width: 0; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-list {
+                flex-wrap: wrap;
+                gap: 0.25rem;
+            }
+
+            .nav-item button {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-
 <body>
-
-  <!--
-    - #MAIN
-  -->
-
-  <main>
-
-    <!--
-      - #SIDEBAR
-    -->
-
-    <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-
-        <figure class="avatar-box">
-          <img src="./assets/images/pic.png" alt="Manav Behl" width="80">
-        </figure>
-
-        <div class="info-content">
-          <h1 class="name" title=" MB">Manav Behl</h1>
-
-          <p class="title"> Electronics & Comm. Engineer</p>
-        </div>
-
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
-      </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile-image">MB</div>
+            <div class="profile-info">
+                <h1 class="profile-name">Manav Behl</h1>
+                <p class="profile-title">Electronics & Comm. Engineer</p>
             </div>
-
+            
             <div class="contact-info">
-              <p class="contact-title">Email</p>
-
-              <a href="mailto:manav.behl@hotmail.com" class="contact-link">manav.behl@hotmail.com</a>
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-details">
+                        <h4>Email</h4>
+                        <a href="mailto:manav.behl@hotmail.com">manav.behl@hotmail.com</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div class="contact-details">
+                        <h4>Phone</h4>
+                        <a href="tel:+4915510860556">+49 155 10860556</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">🎂</div>
+                    <div class="contact-details">
+                        <h4>Birthday</h4>
+                        <span>September 13, 2002</span>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-details">
+                        <h4>Location</h4>
+                        <span>Munich, Germany</span>
+                    </div>
+                </div>
             </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-
-              <a href="tel:+4915510860556" class="contact-link">+49 155 10860556</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-
-              <time datetime="2002-09-13">September 13, 2002</time>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-
-              <address>Munich, Germany</address>
-            </div>
-
-          </li>
-
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
-      </div>
-
-    </aside>
-
-
-
-
-
-    <!--
-      - #main-content
-    -->
-
-    <div class="main-content">
-
-      <!--
-        - #NAVBAR
-      -->
-
-      <nav class="navbar">
-
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Projects</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Skills</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
-          </li>
-
-        </ul>
-
-      </nav>
-
-
-
-
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about  active" data-page="about">
-
-        <<header>
-          <h2 class="h2 article-title">About Me</h2>
-        </header>
-        
-        <section class="about-text">
-          <p>
-            I'm Manav Behl, an Electronics and Communication Engineer with a strong passion for IoT, data analytics, and web development. 
-            I enjoy working on innovative projects that integrate smart technologies to solve real-world problems.
-          </p>
-
-          <p>
-            I am constantly learning and evolving, exploring new technologies to enhance my knowledge. My ultimate ambition is to bridge the gap 
-            between technology and usability, making everyday life smarter and more efficient.
-          </p>
-        </section>
-      
-
-
-       <!--
-  - service
--->
-
-<section class="service">
-
-  <h3 class="h3 service-title">What I'm Doing</h3>
-
-  <ul class="service-list">
-
-    <li class="service-item">
-
-      <div class="service-icon-box">
-        <img src="./assets/images/iot.png" alt="IoT icon" width="40">
-      </div>
-
-      <div class="service-content-box">
-        <h4 class="h4 service-item-title">IoT Development</h4>
-
-        <p class="service-item-text">
-          Building smart IoT solutions to enhance automation, data collection, and real-time monitoring for a smarter future.
-        </p>
-      </div>
-
-    </li>
-
-    <li class="service-item">
-
-      <div class="service-icon-box">
-        <img src="./assets/images/DA.png" alt="Data Analytics icon" width="40">
-      </div>
-
-      <div class="service-content-box">
-        <h4 class="h4 service-item-title">Data Analytics</h4>
-
-        <p class="service-item-text">
-          Analyzing data using Python, SQL, and Excel to extract meaningful insights and drive better decision-making.
-        </p>
-      </div>
-
-    </li>
-
-    <li class="service-item">
-
-      <div class="service-icon-box">
-        <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
-      </div>
-
-      <div class="service-content-box">
-        <h4 class="h4 service-item-title">Web Development</h4>
-
-        <p class="service-item-text">
-          Creating dynamic and responsive websites using HTML, CSS, and JavaScript to deliver seamless user experiences.
-        </p>
-      </div>
-
-    </li>
-
-    <li class="service-item">
-
-      <div class="service-icon-box">
-        <img src="./assets/images/embedded.png" alt="Embedded Systems icon" width="40">
-      </div>
-
-      <div class="service-content-box">
-        <h4 class="h4 service-item-title">Embedded Systems</h4>
-
-        <p class="service-item-text">
-          Designing and programming embedded systems using Embedded C, microcontrollers, and sensor integration.
-        </p>
-      </div>
-
-    </li>
-
-  </ul>
-
-</section>
-
-
-
-        <!--
-  - testimonials
--->
-
-<section class="testimonials">
-
-  <h3 class="h3 testimonials-title">Testimonials</h3>
-
-  <ul class="testimonials-list has-scrollbar">
-
-    <li class="testimonials-item">
-      <div class="content-card" data-testimonials-item>
-
-        <figure class="testimonials-avatar-box">
-          <img src="./assets/images/HOD.png" alt="Dr. A. A. Shinde" width="60" data-testimonials-avatar>
-        </figure>
-
-        <h4 class="h4 testimonials-item-title" data-testimonials-title>Dr. A. A. Shinde</h4>
-
-        <div class="testimonials-text" data-testimonials-text>
-          <p>
-            Manav Behl demonstrated an exceptional understanding of Embedded Systems during his time at Bharati Vidyapeeth.
-            His expertise in microcontrollers, sensor integration, and PCB design was evident in his projects, including 
-            a real-time health monitoring system. His problem-solving skills and innovative mindset make him a valuable 
-            asset in the field of IoT and Embedded Systems.
-          </p>
-        </div>
-
-      </div>
-    </li>
-
-    <li class="testimonials-item">
-      <div class="content-card" data-testimonials-item>
-
-        <figure class="testimonials-avatar-box">
-          <img src="./assets/images/spinny.avif" alt="Spinny Management" width="60" data-testimonials-avatar>
-        </figure>
-
-        <h4 class="h4 testimonials-item-title" data-testimonials-title>Spinny Management</h4>
-
-        <div class="testimonials-text" data-testimonials-text>
-          <p>
-            During his time at Spinny, Manav showcased strong analytical and data-driven decision-making skills. His ability 
-            to track performance metrics and implement data insights helped optimize sales operations. His proactive approach, 
-            attention to detail, and dedication to excellence made a significant impact on our team.
-          </p>
-        </div>
-
-      </div>
-    </li>
-
-  </ul>
-
-</section>
-
-
-<!--
-  - testimonials modal
--->
-
-<div class="modal-container" data-modal-container>
-
-  <div class="overlay" data-overlay></div>
-
-  <section class="testimonials-modal">
-
-    <button class="modal-close-btn" data-modal-close-btn>
-      <ion-icon name="close-outline"></ion-icon>
-    </button>
-
-    <div class="modal-img-wrapper">
-      <figure class="modal-avatar-box">
-        <img src="./assets/images/avatar-HOD.png" alt="Dr. A. A. Shinde" width="80" data-modal-img>
-      </figure>
-
-      <img src="./assets/images/icon-quote.svg" alt="quote icon">
-    </div>
-
-    <div class="modal-content">
-
-      <h4 class="h3 modal-title" data-modal-title>Dr. A. A. Shinde</h4>
-
-      <time datetime="2023-07-10">10 July, 2023</time>
-
-      <div data-modal-text>
-        <p>
-          Manav Behl is a highly skilled Embedded Systems engineer. His technical expertise and dedication to developing 
-          IoT solutions have been impressive. His final year project showcased his ability to integrate hardware and 
-          software effectively, making him a promising professional in this domain.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-</div>
-
-<div class="modal-container" data-modal-container>
-
-  <div class="overlay" data-overlay></div>
-
-  <section class="testimonials-modal">
-
-    <button class="modal-close-btn" data-modal-close-btn>
-      <ion-icon name="close-outline"></ion-icon>
-    </button>
-
-    <div class="modal-img-wrapper">
-      <figure class="modal-avatar-box">
-        <img src="./assets/images/avatar-spinny.png" alt="Spinny Management" width="80" data-modal-img>
-      </figure>
-
-      <img src="./assets/images/icon-quote.svg" alt="quote icon">
-    </div>
-
-    <div class="modal-content">
-
-      <h4 class="h3 modal-title" data-modal-title>Spinny Management</h4>
-
-      <time datetime="2024-01-10">10 January, 2024</time>
-
-      <div data-modal-text>
-        <p>
-          Manav's ability to leverage data for performance tracking and strategic decision-making was invaluable at Spinny.
-          His enthusiasm, adaptability, and problem-solving approach helped streamline our sales process. We highly
-          recommend him for roles requiring analytical thinking and data-driven execution.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-</div>
-
-
-       <!--
-  - IDEs I Can Work With
--->
-
-<section class="clients">
-
-  <h3 class="h3 clients-title">IDEs I Can Work With</h3>
-
-  <ul class="clients-list has-scrollbar">
-
-    <li class="clients-item">
-      <a href="https://code.visualstudio.com/" target="_blank">
-        <img src="./assets/images/vscode.png" alt="VS Code">
-      </a>
-    </li>
-
-    <li class="clients-item">
-      <a href="https://www.jetbrains.com/pycharm/" target="_blank">
-        <img src="./assets/images/pycharm.png" alt="PyCharm">
-      </a>
-    </li>
-
-    <li class="clients-item">
-      <a href="https://eclipseide.org" target="_blank">
-        <img src="./assets/images/eclipse.png" alt="Eclipse">
-      </a>
-    </li>
-
-    <li class="clients-item">
-      <a href="https://www.arduino.cc/en/software" target="_blank">
-        <img src="./assets/images/arduino.png" alt="Arduino IDE">
-      </a>
-    </li>
-
-    <li class="clients-item">
-      <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://excel.cloud.microsoft/&ved=2ahUKEwiP47L3toGNAxX1TmwGHepfNSYQFnoECBUQAQ&usg=AOvVaw2NQ8dsv7MAJGY3iBRPWgdQ" target="_blank">
-        <img src="./assets/images/excel.png" alt="Microsoft EXCEL">
-      </a>
-    </li>
-
-    <li class="clients-item">
-      <a href="https://www.canva.com/en_in/" target="_blank">
-        <img src="./assets/images/canva.png" alt="Canva">
-      </a>
-    </li>
-
-  </ul>
-
-</section>
-
-</article>
-
-
-
-
-
-
-    <!--
-  - #RESUME
--->
-
-<article class="resume" data-page="resume">
-
-  <header>
-    <h2 class="h2 article-title">Resume</h2>
-  </header>
-
-  <!-- Education Section -->
-  <section class="timeline">
-
-    <div class="title-wrapper">
-      <div class="icon-box">
-        <ion-icon name="book-outline"></ion-icon>
-      </div>
-
-      <h3 class="h3">Education</h3>
-    </div>
-
-    <ol class="timeline-list">
-
-       <li class="timeline-item">
-        <h4 class="h4 timeline-item-title">MSc. Data & Society</h4>
-        <span>2025 — Present</span>
-        <p class="timeline-text">
-          I am excited to mention that I have been enrolled in the Technical University of Munich on <b>24.04.2025</b>.  
-          Specialized in <b>Data and Society</b>
-        </p>
-      </li>
-      
-      <li class="timeline-item">
-        <h4 class="h4 timeline-item-title">B.Tech in Electronics & Communication Engineering</h4>
-        <span>2019 — 2023</span>
-        <p class="timeline-text">
-          Graduated from Bharati Vidyapeeth (DU) College of Engineering, Pune, with an <b>8.2 CGPA</b>.  
-          Specialized in <b>IoT, Embedded Systems, and Data Analytics</b>, working on projects like <b> Monitoring System</b> and <b>Smart Parking System</b>.
-        </p>
-      </li>
-
-      <li class="timeline-item">
-        <h4 class="h4 timeline-item-title">CBSE XII</h4>
-        <span>July 2020</span>
-        <p class="timeline-text">
-          Completed class XIIth with an overall percentage of 70.5% in the year 2020. With complete scores on each practical exam.
-        </p>
-      </li>
-
-      <li class="timeline-item">
-        <h4 class="h4 timeline-item-title">CBSE X</h4>
-        <span>April — May 2023</span>
-        <p class="timeline-text">
-          Completed class Xth with overall percentage of 68% in the year 2018.
-        </p>
-      </li>
-
-    </ol>
-
-  </section>
-
-  <!-- Experience Section -->
-  <section class="timeline">
-
-    <div class="title-wrapper">
-      <div class="icon-box">
-        <ion-icon name="briefcase-outline"></ion-icon>
-      </div>
-
-      <h3 class="h3">Experience</h3>
-    </div>
-
-    <ol class="timeline-list">
-
-      <li class="timeline-item">
-        <h4 class="h4 timeline-item-title">Management Trainee - Inside Sales</h4>
-        <span>August 2024 — November 2024</span>
-        <p class="timeline-text">
-          Working at <b>Spinny Max (Valuedrive Technologies Pvt. Ltd.)</b>, leveraging data analytics to optimize sales and track performance metrics, 
-          improving overall output by <b>8-10%</b>. Developed insights using Excel and Python for business growth.
-        </p>
-      </li>
-
-
-      <li class="timeline-item">
-        <h4 class="h4 timeline-item-title">Virtual Internship</h4>
-        <span>March 2022 — May 2022</span>
-        <p class="timeline-text">
-          Created multiple projects in the domain of Web-development (making <b>portfolios or web-shopping pages</b> for clients). And Internet of things ( creating sensor boards and curating easy solutions of problems like helping in a <b>smart parking sensor</b>)
-        </p>
-      </li>
-
-    </ol>
-
-  </section>
-
-  <!-- Skills Section -->
-  <section class="skill">
-
-    <h3 class="h3 skills-title">My Skills</h3>
-
-    <ul class="skills-list content-card">
-
-      <li class="skills-item">
-        <div class="title-wrapper">
-          <h5 class="h5">Python & Data Analytics</h5>
-          <data value="65">65%</data>
-        </div>
-        <div class="skill-progress-bg">
-          <div class="skill-progress-fill" style="width: 65%;"></div>
-        </div>
-      </li>
-
-      <li class="skills-item">
-        <div class="title-wrapper">
-          <h5 class="h5">Embedded Systems & IoT</h5>
-          <data value="90">90%</data>
-        </div>
-        <div class="skill-progress-bg">
-          <div class="skill-progress-fill" style="width: 90%;"></div>
-        </div>
-      </li>
-
-      <li class="skills-item">
-        <div class="title-wrapper">
-          <h5 class="h5">SQL & Excel</h5>
-          <data value="20">20%</data>
-        </div>
-        <div class="skill-progress-bg">
-          <div class="skill-progress-fill" style="width: 20%;"></div>
-        </div>
-      </li>
-
-      <li class="skills-item">
-        <div class="title-wrapper">
-          <h5 class="h5">HTML, CSS, JavaScript</h5>
-          <data value="75">75%</data>
-        </div>
-        <div class="skill-progress-bg">
-          <div class="skill-progress-fill" style="width: 75%;"></div>
-        </div>
-      </li>
-
-      <li class="skills-item">
-        <div class="title-wrapper">
-          <h5 class="h5">Microcontrollers & PCB Design</h5>
-          <data value="30">30%</data>
-        </div>
-        <div class="skill-progress-bg">
-          <div class="skill-progress-fill" style="width: 30%;"></div>
-        </div>
-      </li>
-
-    </ul>
-
-  </section>
-
-</article>
-
-
-
-
-   <!--
-  - #PROJECTS
--->
-
-<article class="projects" data-page="projects">
-
-  <header>
-    <h2 class="h2 article-title">Projects</h2>
-  </header>
-
-  <section class="projects">
-
-    <ul class="filter-list">
-      <li class="filter-item">
-        <button class="active" data-filter-btn>All</button>
-      </li>
-      <li class="filter-item">
-        <button data-filter-btn>IoT Projects</button>
-      </li>
-      <li class="filter-item">
-        <button data-filter-btn>Embedded Systems</button>
-      </li>
-      <li class="filter-item">
-        <button data-filter-btn>Web Development</button>
-      </li>
-    </ul>
-
-    <div class="filter-select-box">
-      <button class="filter-select" data-select>
-        <div class="select-value" data-selecct-value>Select category</div>
-        <div class="select-icon">
-          <ion-icon name="chevron-down"></ion-icon>
-        </div>
-      </button>
-
-      <ul class="select-list">
-        <li class="select-item"><button data-select-item>All</button></li>
-        <li class="select-item"><button data-select-item>IoT Projects</button></li>
-        <li class="select-item"><button data-select-item>Embedded Systems</button></li>
-        <li class="select-item"><button data-select-item>Web Development</button></li>
-      </ul>
-    </div>
-
-    <ul class="project-list">
-
-      <!-- IoT Projects -->
-      <li class="project-item active" data-filter-item data-category="iot projects">
-        <a href="https://github.com/ECEmanav/Smart-parking" target="_blank">
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-            <img src="./assets/images/parking.png" alt="Smart Parking" loading="lazy">
-          </figure>
-          <h3 class="project-title">Smart Parking</h3>
-          <p class="project-category">IoT</p>
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="iot projects">
-        <a href="https://github.com/ECEmanav/airpollution_system" target="_blank">
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-            <img src="./assets/images/airpollution.jpeg" alt="Air Pollution System" loading="lazy">
-          </figure>
-          <h3 class="project-title">Air Pollution Monitoring</h3>
-          <p class="project-category">IoT</p>
-        </a>
-      </li>
-
-      <!-- Embedded Systems Projects -->
-      <li class="project-item active" data-filter-item data-category="embedded systems">
-        <a href="#">
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-            <img src="./assets/images/trafficlight.png" alt="Traffic Light Simulation" loading="lazy">
-          </figure>
-          <h3 class="project-title">Traffic Light Simulation</h3>
-          <p class="project-category">Embedded Systems</p>
-        </a>
-      </li>
-
-      <!-- Web Development Projects -->
-      <li class="project-item active" data-filter-item data-category="web development">
-        <a href="https://github.com/ECEmanav/portfolio" target="_blank">
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-            <img src="./assets/images/portfolio.png" alt="Portfolio Website" loading="lazy">
-          </figure>
-          <h3 class="project-title">Personal Portfolio</h3>
-          <p class="project-category">Web Development</p>
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="web development">
-        <a href="https://github.com/ECEmanav/chat-bot" target="_blank">
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-            <img src="./assets/images/chatbot.png" alt="Chat Bot" loading="lazy">
-          </figure>
-          <h3 class="project-title">AI Chat Bot</h3>
-          <p class="project-category">Web Development</p>
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="web development">
-        <a href="https://github.com/ECEmanav/temp-conv" target="_blank">
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-            <img src="./assets/images/tempcon.png" alt="Temperature Converter" loading="lazy">
-          </figure>
-          <h3 class="project-title">Temperature Converter</h3>
-          <p class="project-category">Web Development</p>
-        </a>
-      </li>
-
-    </ul>
-
-  </section>
-
-</article>
-
-
-
-
-
-
-      <!--
-    - #SKILLS
--->
-
-<article class="skills" data-page="skills">
-
-  <header>
-    <h2 class="h2 article-title">Skills</h2>
-  </header>
-
-  <section class="skills-list">
-
-    <ul class="skills-list-items">
-
-      <li class="skills-item">
-        <a href="#">
-
-          <figure class="skills-banner-box">
-            <img src="./assets/images/embedded.png" alt="Embedded C" loading="lazy">
-          </figure>
-
-          <div class="skills-content">
-
-            <div class="skills-meta">
-              <p class="skills-category">Programming</p>
-
-              <span class="dot"></span>
-
-              <time datetime="2025-02-05">Feb 5, 2025</time>
-            </div>
-
-            <h3 class="h3 skills-item-title">Embedded C</h3>
-
-            <p class="skills-text">
-              Proficient in Embedded C for developing embedded systems and IoT solutions.
-            </p>
-
-          </div>
-
-        </a>
-      </li>
-
-      <li class="skills-item">
-        <a href="#">
-
-          <figure class="skills-banner-box">
-            <img src="./assets/images/iot.png" alt="Internet of Things (IoT)" loading="lazy">
-          </figure>
-
-          <div class="skills-content">
-
-            <div class="skills-meta">
-              <p class="skills-category">Technology</p>
-
-              <span class="dot"></span>
-
-              <time datetime="2025-02-05">Feb 5, 2025</time>
-            </div>
-
-            <h3 class="h3 skills-item-title">Internet of Things (IoT)</h3>
-
-            <p class="skills-text">
-              Experienced in IoT development with sensors, devices, and data communication protocols.
-            </p>
-
-          </div>
-
-        </a>
-      </li>
-
-      <li class="skills-item">
-        <a href="#">
-
-          <figure class="skills-banner-box">
-            <img src="./assets/images/html-logo.png" alt="HTML5, CSS3, and JavaScript" loading="lazy">
-          </figure>
-
-          <div class="skills-content">
-
-            <div class="skills-meta">
-              <p class="skills-category">Web Development</p>
-
-              <span class="dot"></span>
-
-              <time datetime="2025-02-05">Feb 5, 2025</time>
-            </div>
-
-            <h3 class="h3 skills-item-title">HTML5, CSS3, and JavaScript</h3>
-
-            <p class="skills-text">
-              Skilled in front-end development, creating responsive and interactive web pages.
-            </p>
-
-          </div>
-
-        </a>
-      </li>
-
-      <li class="skills-item">
-        <a href="#">
-
-          <figure class="skills-banner-box">
-            <img src="./assets/images/python-logo.jpeg" alt="Python and Pandas" loading="lazy">
-          </figure>
-
-          <div class="skills-content">
-
-            <div class="skills-meta">
-              <p class="skills-category">Data Analytics</p>
-
-              <span class="dot"></span>
-
-              <time datetime="2025-02-05">Feb 5, 2025</time>
-            </div>
-
-            <h3 class="h3 skills-item-title">Python and Pandas</h3>
-
-            <p class="skills-text">
-              Expertise in Python programming for data analysis, manipulation, and visualization with Pandas.
-            </p>
-
-          </div>
-
-        </a>
-      </li>
-
-    </ul>
-
-  </section>
-
-</article>
-
-
-
-
-
-
-      <!--
-  - #CONTACT
--->
-
-<article class="contact" data-page="contact">
-
-  <header>
-    <h2 class="h2 article-title">Contact</h2>
-  </header>
-
-  <!-- Google Maps Embed for Indore, India -->
-  <section class="mapbox" data-mapbox>
-    <figure>
-      <iframe
-        src="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.google.com/maps/%3F%2520Munich,%2520Germany&ved=2ahUKEwjiypyk89yOAxVoA9sEHSeCInsQFnoECAsQAQ&usg=AOvVaw0Xg_oYoex1P5SPYT88QIsV"
-        width="100%" height="300" loading="lazy"></iframe>
-    </figure>
-  </section>
-
-  <!-- Contact Form -->
-  <section class="contact-form">
-
-    <h3 class="h3 form-title">Contact Me</h3>
-
-    <form action="#" class="form" data-form>
-
-      <div class="input-wrapper">
-        <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-        <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
-      </div>
-
-      <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
-
-      <button class="form-btn" type="submit" disabled data-form-btn>
-        <ion-icon name="paper-plane"></ion-icon>
-        <span>Send Message</span>
-      </button>
-
-    </form>
-
-  </section>
-
-</article>
-
-
-
-
-
-
-
-  <!--
-    - custom js link
-  -->
-  <script src="./assets/js/script.js"></script>
-
-  <!--
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-</body>
-
-</html>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Navigation -->
+            <nav class="navbar">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <button class="nav-link active" data-section="about">About</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-section="resume">Resume</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-section="projects">Projects</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-section="skills">Skills</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-section="contact">Contact</button>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- About Section -->
+            <section class="content-section active" id="about">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-text">
+                    <p>I'm Manav Behl, an Electronics and Communication Engineer with a strong passion for IoT, data analytics, and web development. I enjoy working on innovative projects that integrate smart technologies to solve real-world problems.</p>
+                    
+                    <p>I am constantly learning and evolving, exploring new technologies to enhance my knowledge. My ultimate ambition is to bridge the gap between technology and usability, making everyday life smarter and more efficient.</p>
+                </div>
+
+                <h3 style="font-size: 1.5rem; margin-bottom: 2rem; color: var(--text-primary);">What I'm Doing</h3>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🌐</div>
+                        <h4 class="service-title">IoT Development</h4>
+                        <p class="service-description">Building smart IoT solutions to enhance automation, data collection, and real-time monitoring for a smarter future.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">📊</div>
+                        <h4 class="service-title">Data Analytics</h4>
+                        <p class="service-description">Analyzing data using Python, SQL, and Excel to extract meaningful insights and drive better decision-making.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">💻</div>
+                        <h4 class="service-title">Web Development</h4>
+                        <p class="service-description">Creating dynamic and responsive websites using HTML, CSS, and JavaScript to deliver seamless user experiences.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">⚡</div>
+                        <h4 class="service-title">Embedded Systems</h4>
+                        <p class="service-description">Designing and programming embedded systems using Embedded C, microcontrollers, and sensor integration.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Resume Section -->
+            <section class="content-section" id="resume">
+                <h2 class="section-title">Resume</h2>
+                
+                <h3 style="font-size: 1.5rem; margin-bottom: 2rem; color: var(--text-primary);">Education</h3>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🎓</div>
+                        <h4 class="service-title">MSc. Data & Society</h4>
+                        <p class="service-description"><strong>2025 — Present</strong><br>Technical University of Munich. Enrolled on 24.04.2025, specializing in Data and Society.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">🎓</div>
+                        <h4 class="service-title">B.Tech Electronics & Communication</h4>
+                        <p class="service-description"><strong>2019 — 2023</strong><br>Bharati Vidyapeeth College of Engineering, Pune. CGPA: 8.2. Specialized in IoT, Embedded Systems, and Data Analytics.</p>
+                    </div>
+                </div>
+
+                <h3 style="font-size: 1.5rem; margin: 3rem 0 2rem; color: var(--text-primary);">Experience</h3>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">💼</div>
+                        <h4 class="service-title">Management Trainee - Inside Sales</h4>
+                        <p class="service-description"><strong>August 2024 — November 2024</strong><br>Spinny Max - Leveraged data analytics to optimize sales and track performance metrics, improving overall output by 8-10%.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">💻</div>
+                        <h4 class="service-title">Virtual Internship</h4>
+                        <p class="service-description"><strong>March 2022 — May 2022</strong><br>Created web development projects (portfolios, shopping pages) and IoT solutions including smart parking sensors.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section class="content-section" id="projects">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">🚗</div>
+                        <div class="project-content">
+                            <h3 class="project-title">Smart Parking System</h3>
+                            <p class="project-category">IoT Project</p>
+                            <p class="project-description">Intelligent parking solution using sensors and real-time monitoring to optimize parking space utilization.</p>
+                            <a href="https://github.com/ECEmanav/Smart-parking" class="project-link" target="_blank">View Project →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image">🌬️</div>
+                        <div class="project-content">
+                            <h3 class="project-title">Air Pollution Monitoring</h3>
+                            <p class="project-category">IoT Project</p>
+                            <p class="project-description">Real-time air quality monitoring system with sensor integration and data analytics capabilities.</p>
+                            <a href="https://github.com/ECEmanav/airpollution_system" class="project-link" target="_blank">View Project →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image">🚦</div>
+                        <div class="project-content">
+                            <h3 class="project-title">Traffic Light Simulation</h3>
+                            <p class="project-category">Embedded Systems</p>
+                            <p class="project-description">Embedded system simulation for intelligent traffic light control using microcontrollers.</p>
+                            <a href="#" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image">💼</div>
+                        <div class="project-content">
+                            <h3 class="project-title">Personal Portfolio</h3>
+                            <p class="project-category">Web Development</p>
+                            <p class="project-description">Responsive portfolio website showcasing projects and skills using modern web technologies.</p>
+                            <a href="https://github.com/ECEmanav/portfolio" class="project-link" target="_blank">View Project →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image">🤖</div>
+                        <div class="project-content">
+                            <h3 class="project-title">AI Chat Bot</h3>
+                            <p class="project-category">Web Development</p>
+                            <p class="project-description">Interactive chatbot application with AI capabilities for automated customer support.</p>
+                            <a href="https://github.com/ECEmanav/chat-bot" class="project-link" target="_blank">View Project →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image">🌡️</div>
+                        <div class="project-content">
+                            <h3 class="project-title">Temperature Converter</h3>
+                            <p class="project-category">Web Development</p>
+                            <p class="project-description">Web-based temperature conversion tool with intuitive interface and multiple unit support.</p>
+                            <a href="https://github.com/ECEmanav/temp-conv" class="project-link" target="_blank">View Project →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section class="content-section" id="skills">
+                <h2 class="section-title">Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Python & Data Analytics</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Embedded Systems & IoT</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">HTML, CSS, JavaScript</span>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
