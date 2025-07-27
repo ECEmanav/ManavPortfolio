@@ -1,3 +1,6 @@
+Got it! Here's the complete, updated style.css file incorporating all the suggested improvements.
+
+CSS
 /*-----------------------------------*\
   #style.css
 \*-----------------------------------*/
@@ -24,33 +27,33 @@
   /* gradient */
 
   --bg-gradient-onyx: linear-gradient(
-    to bottom right, 
-    hsl(240, 1%, 25%) 3%, 
+    to bottom right,
+    hsl(240, 1%, 25%) 3%,
     hsl(0, 0%, 19%) 97%
   );
   --bg-gradient-jet: linear-gradient(
-    to bottom right, 
-    hsla(240, 1%, 18%, 0.251) 0%, 
+    to bottom right,
+    hsla(240, 1%, 18%, 0.251) 0%,
     hsla(240, 2%, 11%, 0) 100%
   ), hsl(240, 2%, 13%);
   --bg-gradient-yellow-1: linear-gradient(
-    to bottom right, 
-    hsl(45, 100%, 71%) 0%, 
+    to bottom right,
+    hsl(45, 100%, 71%) 0%,
     hsla(36, 100%, 69%, 0) 50%
   );
   --bg-gradient-yellow-2: linear-gradient(
-    135deg, 
-    hsla(45, 100%, 71%, 0.251) 0%, 
+    135deg,
+    hsla(45, 100%, 71%, 0.251) 0%,
     hsla(35, 100%, 68%, 0) 59.86%
   ), hsl(240, 2%, 13%);
   --border-gradient-onyx: linear-gradient(
-    to bottom right, 
-    hsl(0, 0%, 25%) 0%, 
+    to bottom right,
+    hsl(0, 0%, 25%) 0%,
     hsla(0, 0%, 25%, 0) 50%
   );
   --text-gradient-yellow: linear-gradient(
-    to right, 
-    hsl(45, 100%, 72%), 
+    to right,
+    hsl(45, 100%, 72%),
     hsl(35, 100%, 68%)
   );
 
@@ -67,7 +70,10 @@
   --vegas-gold: hsl(45, 54%, 58%);
   --light-gray: hsl(0, 0%, 84%);
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
+  --light-gray-hover: hsla(0, 0%, 84%, 0.9); /* New */
   --bittersweet-shimmer: hsl(0, 43%, 51%);
+  --accent-blue: hsl(200, 100%, 50%); /* New */
+
 
   /**
    * typography
@@ -77,20 +83,20 @@
   --ff-poppins: 'Poppins', sans-serif;
 
   /* font-size */
-  --fs-1: 24px;
-  --fs-2: 18px;
-  --fs-3: 17px;
-  --fs-4: 16px;
-  --fs-5: 15px;
-  --fs-6: 14px;
-  --fs-7: 13px;
-  --fs-8: 11px;
+  --fs-1: 36px; /* Larger heading */
+  --fs-2: 28px; /* Sub-heading */
+  --fs-3: 22px; /* Name in sidebar */
+  --fs-4: 18px; /* Service titles, project titles */
+  --fs-5: 16px; /* Filter buttons, modal text */
+  --fs-6: 14px; /* Body text, contact info */
+  --fs-7: 13px; /* Smaller text */
+  --fs-8: 12px; /* Navbar links */
 
   /* font-weight */
   --fw-300: 300;
   --fw-400: 400;
   --fw-500: 500;
-  --fw-600: 600;
+  --fw-600: 600; /* New */
 
   /**
    * shadow
@@ -157,8 +163,23 @@ html { font-family: var(--ff-poppins); }
 
 body { background: var(--smoky-black); }
 
+/* Global scrollbar for a touch more elegance */
+body::-webkit-scrollbar { width: 20px; }
 
+body::-webkit-scrollbar-track { background: var(--smoky-black); }
 
+body::-webkit-scrollbar-thumb {
+  border: 5px solid var(--smoky-black);
+  background: hsla(45, 100%, 72%, 0.5); /* Yellow thumb */
+  border-radius: 20px;
+  box-shadow: inset 1px 1px 0 hsla(0, 0%, 100%, 0.11),
+              inset -1px -1px 0 hsla(0, 0%, 100%, 0.11);
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: hsla(45, 100%, 72%, 0.8);
+}
+body::-webkit-scrollbar-button { height: 60px; }
 
 
 /*-----------------------------------*\
@@ -242,6 +263,8 @@ article.active {
 .article-title {
   position: relative;
   padding-bottom: 7px;
+  font-weight: var(--fw-600); /* Make main titles bolder */
+  margin-bottom: 25px; /* More space below titles */
 }
 
 .article-title::after {
@@ -253,6 +276,8 @@ article.active {
   height: 3px;
   background: var(--text-gradient-yellow);
   border-radius: 3px;
+  width: 50px; /* Slightly wider underline */
+  height: 4px;
 }
 
 .has-scrollbar::-webkit-scrollbar {
@@ -333,7 +358,16 @@ main {
 
 .avatar-box {
   background: var(--bg-gradient-onyx);
-  border-radius: 20px;
+  border-radius: 50%; /* Make it a circle */
+  overflow: hidden; /* Ensure image stays within circle */
+  padding: 5px; /* Add some internal padding for the image */
+}
+
+.avatar-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%; /* Make the image itself round */
 }
 
 .info-content .name {
@@ -379,10 +413,16 @@ main {
 }
 
 .info_more-btn:hover,
-.info_more-btn:focus { background: var(--bg-gradient-yellow-1); }
+.info_more-btn:focus {
+  color: var(--white-2); /* Text turns white on hover */
+  background: var(--orange-yellow-crayola); /* Button fills with yellow */
+}
 
 .info_more-btn:hover::before,
-.info_more-btn:focus::before { background: var(--bg-gradient-yellow-2); }
+.info_more-btn:focus::before {
+  background: var(--orange-yellow-crayola); /* Inner part also fills with yellow */
+}
+
 
 .info_more-btn span { display: none; }
 
@@ -440,11 +480,14 @@ main {
 
 .social-item .social-link {
   color: var(--light-gray-70);
-  font-size: 18px;
+  font-size: 20px; /* Slightly larger icons */
+  transition: transform var(--transition-1), color var(--transition-1);
 }
 
-
-.social-item .social-link:hover { color: var(--light-gray); }
+.social-item .social-link:hover {
+  color: var(--orange-yellow-crayola); /* Change to accent color */
+  transform: translateY(-2px); /* Subtle lift effect */
+}
 
 
 
@@ -478,16 +521,36 @@ main {
 .navbar-link {
   color: var(--light-gray);
   font-size: var(--fs-8);
-  padding: 20px 7px;
-  transition: color var(--transition-1);
+  padding: 15px 10px; /* Adjust padding for better look */
+  transition: color var(--transition-1), border-bottom var(--transition-1);
+  position: relative; /* For the underline effect */
+  overflow: hidden; /* Ensure underline stays within bounds */
 }
 
-.navbar-link:hover,
-.navbar-link:focus { color: var(--light-gray-70); }
+.navbar-link.active,
+.navbar-link:hover {
+  color: var(--orange-yellow-crayola);
+}
 
-.navbar-link.active { color: var(--orange-yellow-crayola); }
+/* Underline effect for active/hover */
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--orange-yellow-crayola);
+  transform: scaleX(0); /* Start hidden */
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
 
-
+.navbar-link.active::after,
+.navbar-link:hover::after {
+  transform: scaleX(1); /* Expand on hover/active */
+  transform-origin: bottom left;
+}
 
 
 
@@ -509,7 +572,7 @@ main {
 
 
 /**
- * #service 
+ * #service
  */
 
 .service { margin-bottom: 35px; }
@@ -529,6 +592,10 @@ main {
   border-radius: 14px;
   box-shadow: var(--shadow-2);
   z-index: 1;
+  display: flex; /* New: Make it a flex container */
+  justify-content: flex-start; /* New: Align items to start */
+  align-items: flex-start; /* New: Align items to start */
+  gap: 18px; /* New: Gap between icon and content */
 }
 
 .service-item::before {
@@ -540,11 +607,16 @@ main {
   z-index: -1;
 }
 
-.service-icon-box { margin-bottom: 10px; }
+.service-icon-box {
+  margin-bottom: 0; /* New: Remove bottom margin */
+  margin-top: 5px; /* New: Add top margin */
+  display: flex; /* New: Make it a flex container */
+  align-items: flex-start; /* New: Align icon to top */
+}
 
-.service-icon-box img { margin: auto; }
+.service-icon-box img { margin: 0; /* New: Remove auto margin */ }
 
-.service-content-box { text-align: center; }
+.service-content-box { text-align: left; } /* New: Align text to left */
 
 .service-item-title { margin-bottom: 7px; }
 
@@ -557,7 +629,7 @@ main {
 
 
 /**
- * #testimonials 
+ * #testimonials
  */
 
 .testimonials { margin-bottom: 30px; }
@@ -695,15 +767,36 @@ main {
 
 .modal-close-btn ion-icon { --ionicon-stroke-width: 50px; }
 
+.modal-img-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* Space between avatar and quote icon */
+}
+
 .modal-avatar-box {
   background: var(--bg-gradient-onyx);
   width: max-content;
   border-radius: 14px;
   margin-bottom: 15px;
   box-shadow: var(--shadow-2);
+  overflow: hidden; /* Ensure image stays within bounds */
+}
+.modal-avatar-box img {
+  width: 80px; /* Ensure consistent size */
+  height: 80px;
+  object-fit: cover;
 }
 
-.modal-img-wrapper > img { display: none; }
+
+.modal-img-wrapper > img {
+  display: block;
+  flex-grow: 1;
+  width: 40px; /* Adjust size of quote icon */
+  height: auto;
+  margin-top: -20px; /* Pull it slightly up to overlap avatar */
+  z-index: 1; /* Ensure it's above the avatar */
+}
 
 .modal-title { margin-bottom: 4px; }
 
@@ -723,7 +816,7 @@ main {
 
 
 /**
- * #clients 
+ * #clients
  */
 
 .clients { margin-bottom: 15px; }
@@ -768,7 +861,7 @@ main {
 
 
 /**
- * education and experience 
+ * education and experience
  */
 
 .timeline { margin-bottom: 30px; }
@@ -831,15 +924,16 @@ main {
 
 
 /**
- * skills 
+ * skills (inside resume)
  */
 
-.skills-title { margin-bottom: 20px; }
+.skill .skills-title { margin-bottom: 20px; }
 
-.skills-list { padding: 20px; }
+.skills-list.content-card { /* Targetting the skills list inside resume */
+  padding: 20px;
+}
 
-
-.skills-item:not(:last-child) { margin-bottom: 15px; }
+.skills-list.content-card .skills-item:not(:last-child) { margin-bottom: 15px; }
 
 .skill .title-wrapper {
   display: flex;
@@ -866,9 +960,6 @@ main {
   height: 100%;
   border-radius: inherit;
 }
-
-
-
 
 
 /*-----------------------------------*\
@@ -1115,7 +1206,98 @@ main {
 }
 
 
+/*-----------------------------------*\
+  #SKILLS (Dedicated Page)
+\*-----------------------------------*/
 
+.skills-list-items { /* Changed from .skills-list to .skills-list-items to avoid conflict */
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Increased gap for better spacing */
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.skills-item {
+  background: var(--eerie-black-2); /* Match general card background */
+  border: 1px solid var(--jet); /* Match general card border */
+  border-radius: 14px; /* Consistent border radius */
+  padding: 25px; /* Slightly more padding */
+  width: 300px; /* Slightly wider cards */
+  text-align: left; /* Align content to left */
+  box-shadow: var(--shadow-2); /* Consistent shadow */
+  transition: var(--transition-1); /* Use defined transition */
+  position: relative; /* For icon overlay */
+  overflow: hidden; /* For hover effects */
+}
+
+.skills-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-3); /* Stronger shadow on hover */
+}
+
+/* Skill Banner Box (Image Wrapper) */
+.skills-banner-box {
+  width: 80px; /* Consistent size */
+  height: 80px;
+  background: var(--bg-gradient-onyx); /* Match client logos style */
+  border-radius: 12px; /* Consistent with other icons */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px; /* Space below image */
+  box-shadow: var(--shadow-1);
+}
+
+.skills-banner-box img {
+  width: 60px; /* Adjust image size within the box */
+  height: 60px;
+  object-fit: contain;
+}
+
+/* Skill Titles */
+.skills-item-title {
+  font-size: var(--fs-4); /* Consistent heading size */
+  color: var(--white-2); /* White text for titles */
+  margin: 10px 0;
+  transition: var(--transition-1);
+}
+
+.skills-item:hover .skills-item-title {
+  color: var(--orange-yellow-crayola); /* Highlight title on hover */
+}
+
+/* Skill Text */
+.skills-text {
+  font-size: var(--fs-6); /* Consistent body text size */
+  color: var(--light-gray);
+  line-height: 1.6;
+}
+
+/* Skill Meta Info */
+.skills-meta {
+  font-size: var(--fs-7); /* Consistent meta text size */
+  color: var(--light-gray-70);
+  display: flex;
+  justify-content: flex-start; /* Align meta to left */
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 10px;
+}
+
+.skills-category {
+  color: var(--orange-yellow-crayola); /* Use accent color for category */
+  font-weight: var(--fw-500); /* Slightly bolder */
+  text-transform: uppercase;
+}
+
+/* Dot Separator */
+.skills-meta .dot {
+  width: 5px;
+  height: 5px;
+  background-color: var(--light-gray-70); /* Consistent dot color */
+  border-radius: 50%;
+}
 
 
 /*-----------------------------------*\
@@ -1130,6 +1312,7 @@ main {
   margin-bottom: 30px;
   border: 1px solid var(--jet);
   overflow: hidden;
+  box-shadow: var(--shadow-2); /* Added shadow */
 }
 
 .mapbox figure { height: 100%; }
@@ -1244,7 +1427,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
   /**
-   * #PORTFOLIO, BLOG 
+   * #PORTFOLIO, BLOG
    */
 
   .project-img,
@@ -1337,7 +1520,10 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .sidebar-info { gap: 25px; }
 
-  .avatar-box { border-radius: 30px; }
+  .avatar-box {
+    border-radius: 50%; /* Keep as circle */
+    padding: 5px;
+  }
 
   .avatar-box img { width: 120px; }
 
@@ -1498,7 +1684,7 @@ textarea.form-input::-webkit-resizer { display: none; }
     left: -43px;
   }
 
-  .skills-item:not(:last-child) { margin-bottom: 25px; }
+  .skills-list.content-card .skills-item:not(:last-child) { margin-bottom: 25px; } /* Corrected target */
 
 
 
@@ -1627,6 +1813,12 @@ textarea.form-input::-webkit-resizer { display: none; }
   .project-list, .blog-posts-list { grid-template-columns: 1fr 1fr; }
 
 
+  /* SKILLS (Dedicated Page) */
+  .skills-list-items {
+    grid-template-columns: 1fr 1fr; /* Two columns on larger screens */
+    gap: 25px;
+  }
+
 
   /**
    * CONTACT
@@ -1658,8 +1850,8 @@ textarea.form-input::-webkit-resizer { display: none; }
   :root {
 
     /**
-    * shadow
-    */
+     * shadow
+     */
 
     --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.125);
     --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.125);
@@ -1681,7 +1873,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
   /**
-   * MAIN 
+   * MAIN
    */
 
   main { margin-bottom: 60px; }
@@ -1715,7 +1907,10 @@ textarea.form-input::-webkit-resizer { display: none; }
     padding: 0 20px;
   }
 
-  .navbar-link { font-weight: var(--fw-500); }
+  .navbar-link {
+    font-weight: var(--fw-500);
+    padding: 20px 7px; /* Adjust original padding back for desktop */
+  }
 
 
 
@@ -1747,6 +1942,11 @@ textarea.form-input::-webkit-resizer { display: none; }
   .project-list { grid-template-columns: repeat(3, 1fr); }
 
 
+  /* SKILLS (Dedicated Page) */
+  .skills-list-items {
+    grid-template-columns: repeat(3, 1fr); /* Three columns on even larger screens */
+  }
+
 
   /**
    * BLOG
@@ -1757,117 +1957,11 @@ textarea.form-input::-webkit-resizer { display: none; }
 }
 
 
-/* skills */
-/* Skills Section */
-.skills-list {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  padding: 20px;
-}
-
-.skills-item {
-  background-color: #000; /* Black background */
-  border-radius: 10px;
-  padding: 20px;
-  width: 280px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.skills-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
-}
-
-/* Skill Logos */
-.skills-banner-box img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  margin-bottom: 10px;
-}
-
-/* Skill Titles */
-.skills-item-title {
-  font-size: 1.4rem;
-  color: #007bff; /* Blue color */
-  margin: 10px 0;
-}
-
-/* Skill Text */
-.skills-text {
-  font-size: 1rem;
-  color: #ddd;
-  line-height: 1.5;
-}
-
-/* Skill Meta Info */
-.skills-meta {
-  font-size: 0.9rem;
-  color: #bbb;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-}
-
-.skills-category {
-  color: #007bff;
-  font-weight: bold;
-}
-
-/* Dot Separator */
-.dot {
-  width: 6px;
-  height: 6px;
-  background-color: #007bff;
-  border-radius: 50%;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .skills-list {
-      flex-direction: column;
-      align-items: center;
-  }
-
-  .skills-item {
-      width: 90%;
-  }
-}
-
-
-
 /**
  * responsive larger than 1250px screen
  */
 
 @media (min-width: 1250px) {
-
-  /**
-   * RESET
-   */
-
-  body::-webkit-scrollbar { width: 20px; }
-
-  body::-webkit-scrollbar-track { background: var(--smoky-black); }
-
-  body::-webkit-scrollbar-thumb {
-    border: 5px solid var(--smoky-black);
-    background: hsla(0, 0%, 100%, 0.1);
-    border-radius: 20px;
-    box-shadow: inset 1px 1px 0 hsla(0, 0%, 100%, 0.11),
-                inset -1px -1px 0 hsla(0, 0%, 100%, 0.11);
-  }
-
-  body::-webkit-scrollbar-thumb:hover { background: hsla(0, 0%, 100%, 0.15); }
-
-  body::-webkit-scrollbar-button { height: 60px; }
-
-
 
   /**
    * REUSED STYLE
@@ -1955,8 +2049,8 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
   /**
-	 * RESUME
-	 */
+   * RESUME
+   */
 
   .timeline-text { max-width: 700px; }
 
